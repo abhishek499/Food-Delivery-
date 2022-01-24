@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
 import MaterialCommunityIcons from "react-native-vector-icons/Ionicons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import firebase from "../../firebase";
 
 export const localRestaurants = [
   {
@@ -113,6 +114,23 @@ export default function RestaurantItem({ navigation, ...props }) {
       key: 5,
     },
   ]);
+
+  useEffect(() => {
+    const db = firebase.firestore();
+    const unsubscribe = db
+      .collection("restaurant")
+      .limit(1)
+      .onSnapshot((snapshot) => {
+        snapshot.docs.map((doc) => {
+          setRestaurant(doc.data());
+        });
+      });
+
+    console.log(restaurant);
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <>
       <FlatList
@@ -142,7 +160,11 @@ export default function RestaurantItem({ navigation, ...props }) {
             >
               <View
                 key={item.key}
-                style={{ marginTop: 10, padding: 15, backgroundColor: "white" }}
+                style={{
+                  marginTop: 10,
+                  padding: 15,
+                  backgroundColor: "white",
+                }}
               >
                 <RestaurantImage image={item.image_url} />
                 <RestaurantInfo

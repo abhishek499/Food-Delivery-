@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import { Divider } from "react-native-elements";
+import Banner from "../components/home/Banner";
 import BottonTab from "../components/home/BottomTab";
 import Categories from "../components/home/Categories";
 import HeaderTab from "../components/home/HeaderTab";
@@ -36,19 +37,16 @@ export default function Home({ navigation }) {
         <SearchBar />
       </View>
 
-      {/* <View
-        style={
-          {
-            height: "20%",
-          }
-        }
-      > */}
       <Categories />
-      <RestaurantItem navigation={navigation} />
-      {/* </View> */}
-      {/* </ScrollView> */}
-      <Divider width={1} />
-      <BottonTab />
+      <ScrollView>
+        <Banner />
+        <View>
+          <RestaurantItem navigation={navigation} />
+        </View>
+
+        <Divider width={1} />
+        <BottonTab />
+      </ScrollView>
       {/* </KeyboardAvoidingView> */}
     </SafeAreaView>
   );

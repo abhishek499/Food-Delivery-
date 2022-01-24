@@ -78,8 +78,8 @@ export default function OrderCompleted({ route }) {
 
       {/* cooking animation */}
       <LottieView
-        // style={{ height: 200, alignSelf: "center" }}
-        source={require("../assets/animations/loading.json")}
+        style={{ height: 200, alignSelf: "center" }}
+        source={require("../assets/animations/cooking.json")}
         autoPlay
         speed={0.6}
       />

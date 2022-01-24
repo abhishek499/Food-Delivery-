@@ -66,7 +66,7 @@ const foods = [
 ];
 
 export default function RestaurantDetail({ route, navigation }) {
-  console.log(route);
+  // console.log(route);
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
