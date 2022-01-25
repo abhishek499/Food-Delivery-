@@ -24,9 +24,9 @@ export default function ViewCart({ navigation }) {
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
 
-  const totalUSD = Number(total).toLocaleString("en", {
+  const totalUSD = Number(total).toLocaleString("en-IN", {
     style: "currency",
-    currency: "USD",
+    currency: "INR",
   });
 
   const addOrderToFirebase = () => {

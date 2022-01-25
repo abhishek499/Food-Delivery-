@@ -16,7 +16,7 @@ export const localRestaurants = [
   {
     name: "Beachside Bar",
     image_url:
-      "https://static.onecms.io/wp-content/uploads/sites/9/2020/04/24/ppp-why-wont-anyone-rescue-restaurants-FT-BLOG0420.jpg",
+      "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246__480.jpg",
     categories: ["Cafe", "Bar"],
     price: "$$",
     reviews: 1244,
@@ -64,31 +64,31 @@ export const localRestaurants = [
 export default function RestaurantItem({ navigation, ...props }) {
   const [restaurant, setRestaurant] = useState([
     {
-      name: "Beachside Bar",
+      name: "Veg Classic Burger",
       image_url:
-        "https://static.onecms.io/wp-content/uploads/sites/9/2020/04/24/ppp-why-wont-anyone-rescue-restaurants-FT-BLOG0420.jpg",
+        "https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       categories: ["Cafe", "Bar"],
-      price: "$$",
+      price: "₹ 150",
       reviews: 1244,
       rating: 4.5,
       key: 1,
     },
     {
-      name: "Benihana",
+      name: "Cheese Burger",
       image_url:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+        "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246__480.jpg",
       categories: ["Cafe", "Bar"],
-      price: "$$",
+      price: "₹ 200",
       reviews: 1244,
       rating: 3.7,
       key: 2,
     },
     {
-      name: "India's Grill",
+      name: "Chinese Noodles",
       image_url:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+        "https://images.pexels.com/photos/2098135/pexels-photo-2098135.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       categories: ["Indian", "Bar"],
-      price: "$$",
+      price: "₹ 350",
       reviews: 700,
       rating: 4.9,
       key: 3,
@@ -96,19 +96,19 @@ export default function RestaurantItem({ navigation, ...props }) {
     {
       name: "India's Grill",
       image_url:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+        "https://b.zmtcdn.com/data/pictures/chains/0/18798800/e390c1d8f4df7d86b3787fe98ecd4427.jpg?fit=around|300:273&crop=300:273;*,*",
       categories: ["Indian", "Bar"],
-      price: "$$",
+      price: "₹ 450",
       reviews: 700,
       rating: 4.9,
       key: 4,
     },
     {
-      name: "Benihana",
+      name: "Momos",
       image_url:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+        "https://b.zmtcdn.com/data/pictures/chains/3/18689923/fe92135685160e19b3a464a788876e45.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*",
       categories: ["Cafe", "Bar"],
-      price: "$$",
+      price: "₹ 350",
       reviews: 1244,
       rating: 3.7,
       key: 5,
@@ -143,37 +143,42 @@ export default function RestaurantItem({ navigation, ...props }) {
         data={restaurant}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
-              key={item.key}
-              activeOpacity={0.5}
-              style={{ marginBottom: 2 }}
-              onPress={() =>
-                navigation.navigate("RestaurantDetail", {
-                  name: item.name,
-                  image: item.image_url,
-                  categories: item.categories,
-                  price: item.price,
-                  reviews: item.reviews,
-                  rating: item.rating,
-                })
-              }
-            >
-              <View
+            <View>
+              <TouchableOpacity
                 key={item.key}
-                style={{
-                  marginTop: 10,
-                  padding: 15,
-                  backgroundColor: "white",
-                }}
+                activeOpacity={0.5}
+                style={{ marginBottom: 2 }}
+                onPress={() =>
+                  navigation.navigate("RestaurantDetail", {
+                    name: item.name,
+                    image: item.image_url,
+                    categories: item.categories,
+                    price: item.price,
+                    reviews: item.reviews,
+                    rating: item.rating,
+                  })
+                }
               >
-                <RestaurantImage image={item.image_url} />
-                <RestaurantInfo
-                  name={item.name}
-                  price={item.price}
-                  rating={item.rating}
-                />
-              </View>
-            </TouchableOpacity>
+                <View
+                  key={item.key}
+                  style={{
+                    marginTop: 10,
+                    // padding: 15,
+                    backgroundColor: "white",
+                    borderRadius: 15,
+                    width: "95%",
+                    marginHorizontal: "2.5%",
+                  }}
+                >
+                  <RestaurantImage image={item.image_url} />
+                  <RestaurantInfo
+                    name={item.name}
+                    price={item.price}
+                    rating={item.rating}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
           );
         }}
       />
@@ -211,9 +216,9 @@ const RestaurantImage = (props) => {
 
   const Heart = () => {
     return heart ? (
-      <Entypo name="heart" size={24} color="#FF4242" />
+      <Entypo name="heart" size={30} color="#FF4242" />
     ) : (
-      <Entypo name="heart-outlined" size={24} color="#fff" />
+      <Entypo name="heart-outlined" size={20} color="#fff" />
     );
   };
 
@@ -223,10 +228,10 @@ const RestaurantImage = (props) => {
         source={{
           uri: props.image,
         }}
-        style={{ width: "100%", height: 180, borderRadius: 10 }}
+        style={{ width: "100%", height: 200, borderRadius: 10 }}
       />
       <TouchableOpacity
-        style={{ position: "absolute", right: 20, top: 20 }}
+        style={{ position: "absolute", right: 10, top: 10 }}
         onPress={() => (heart ? setHeart(false) : setHeart(true))}
       >
         <Heart />
@@ -242,6 +247,8 @@ const RestaurantInfo = (props) => (
       justifyContent: "space-between",
       alignItems: "center",
       marginTop: 10,
+      paddingHorizontal: 15,
+      paddingBottom: 15,
     }}
   >
     <View>
@@ -251,8 +258,8 @@ const RestaurantInfo = (props) => (
     <View
       style={{
         backgroundColor: "#000",
-        height: 30,
-        width: 55,
+        height: 25,
+        width: 48,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 15,
@@ -262,7 +269,7 @@ const RestaurantInfo = (props) => (
       <Text style={{ color: "#fff", alignItems: "center" }}>
         {props.rating}{" "}
       </Text>
-      <FontAwesome name="star" size={15} color="#fff" />
+      <FontAwesome name="star" size={10} color="#fff" />
     </View>
   </View>
 );

@@ -26,10 +26,10 @@ const Icon = (props) => (
     <View>
       <FontAwesome5
         name={props.icon}
-        size={21}
+        size={23}
         style={{ marginBottom: 3, alignSelf: "center" }}
       />
-      <Text style={{ fontSize: 13 }}>{props.text} </Text>
+      {/* <Text style={{ fontSize: 13 }}>{props.text} </Text> */}
     </View>
   </TouchableOpacity>
 );

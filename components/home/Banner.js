@@ -2,14 +2,38 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
 const categories = [
-  { img: "https://picsum.photos/80", tittle: "Home Made" },
-  { img: "https://picsum.photos/80", tittle: "Pizza" },
-  { img: "https://picsum.photos/80", tittle: "Chinese" },
-  { img: "https://picsum.photos/80", tittle: "North Indian" },
-  { img: "https://picsum.photos/80", tittle: "Burger" },
-  { img: "https://picsum.photos/80", tittle: "Rolls" },
-  { img: "https://picsum.photos/80", tittle: "Desert" },
-  { img: "https://picsum.photos/80", tittle: "South Indian" },
+  {
+    img: "https://b.zmtcdn.com/data/homepage_dish_data/4/7cf2db5ec261a0fa27a502d3196a6f60.png",
+    tittle: "Home Made",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png",
+    tittle: "Pizza",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/homepage_dish_data/4/d9452952b432b35d1019ada01cedce7f.png",
+    tittle: "Chinese",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/dish_images/e44c42ff4b60b025225c8691ef9735b11635781903.png",
+    tittle: "North Indian",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/homepage_dish_data/4/7cf2db5ec261a0fa27a502d3196a6f60.png",
+    tittle: "Burger",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/dish_images/c2f22c42f7ba90d81440a88449f4e5891634806087.png",
+    tittle: "Rolls",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/homepage_dish_data/2/78261817faa51e9456cfab592c189a62.png",
+    tittle: "Desert",
+  },
+  {
+    img: "https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png",
+    tittle: "South Indian",
+  },
 ];
 
 export default function Banner() {
