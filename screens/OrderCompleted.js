@@ -25,7 +25,7 @@ export default function OrderCompleted({ route }) {
     const unsubscribe = db
       .collection("orders")
       .orderBy("createdAt", "desc")
-      // .limit(1)
+      .limit(1)
       .onSnapshot((snapshot) => {
         snapshot.docs.map((doc) => {
           setLastOrder(doc.data());

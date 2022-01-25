@@ -45,7 +45,7 @@ export default function Home({ navigation }) {
       <KeyboardAvoidingView>
         <Cart />
         <Divider width={1} />
-        <BottonTab />
+        <BottonTab navigation={navigation} />
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
