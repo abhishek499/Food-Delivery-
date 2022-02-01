@@ -1,5 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import AppLoading from "expo-app-loading";
+import useFonts from "../hooks/useFonts";
+
+const fetchFont = async () => {
+  await useFonts();
+};
 
 const categories = [
   {
@@ -37,6 +43,18 @@ const categories = [
 ];
 
 export default function Banner() {
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFont}
+        onError={(err) => console.log(err)}
+        onFinish={() => setFontLoaded(true)}
+      />
+    );
+  }
+
   return (
     // <View style={styles.bannerBox}>
     <View style={styles.banner}>
@@ -97,6 +115,8 @@ const Circle = (props) => {
           style={{
             alignSelf: "center",
             color: "black",
+            fontFamily: "Product-Sans-Regular",
+            paddingTop: 2,
           }}
         >
           {props.tittle}

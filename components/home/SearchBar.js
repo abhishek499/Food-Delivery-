@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -31,12 +31,14 @@ export default function SearchBar() {
             borderRadius: 20,
             fontWeight: "700",
             marginTop: "1%",
+            fontFamily: "Product-Sans-Regular",
           },
           textInputContainer: {
             backgroundColor: "#eee",
             borderRadius: 50,
             flexDirection: "row",
             marginRight: "1%",
+            fontFamily: "Product-Sans-Italic",
           },
         }}
         renderLeftButton={() => (

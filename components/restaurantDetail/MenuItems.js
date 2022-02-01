@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontSize: 19,
-    fontWeight: "bold",
+    fontFamily: "Product-Sans-Bold",
   },
 });
 
@@ -53,9 +53,9 @@ export default function MenuItems({
 
   return (
     <View>
-      {foods.map((food) => (
+      {foods.map((food, index) => (
         <>
-          <TouchableOpacity key={food.key}>
+          <TouchableOpacity key={index}>
             <View style={styles.menuItemStyle} key={food.key}>
               {hideCheckbox ? (
                 <></>
@@ -108,8 +108,12 @@ const FoodInfo = (props) => (
     }}
   >
     <Text style={styles.titleStyle}>{props.food.title}</Text>
-    <Text>{props.food.description}</Text>
-    <Text>{props.food.price}</Text>
+    <Text style={{ fontFamily: "Product-Sans-Regular" }}>
+      {props.food.description}
+    </Text>
+    <Text style={{ fontFamily: "Product-Sans-Regular" }}>
+      {props.food.price}
+    </Text>
   </View>
 );
 

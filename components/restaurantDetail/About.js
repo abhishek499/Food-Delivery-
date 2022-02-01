@@ -36,6 +36,7 @@ const RestaurantTitle = (props) => (
       fontWeight: "600",
       marginTop: 10,
       marginHorizontal: 15,
+      fontFamily: "Product-Sans-Bold",
     }}
   >
     {props.title}
@@ -49,6 +50,7 @@ const RestaurantDescription = (props) => (
       marginHorizontal: 15,
       fontWeight: "400",
       fontSize: 15.5,
+      fontFamily: "Product-Sans-Regular",
     }}
   >
     {props.description}

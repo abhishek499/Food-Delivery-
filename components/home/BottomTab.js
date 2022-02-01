@@ -1,8 +1,13 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-export default function BottonTab({ navigation, ...props }) {
+export default function BottomTab({ navigation, ...props }) {
   return (
     <View
       style={{

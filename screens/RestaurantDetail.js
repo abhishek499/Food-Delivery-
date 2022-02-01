@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { Divider } from "react-native-elements";
 import About from "../components/restaurantDetail/About";
@@ -67,6 +67,7 @@ const foods = [
 
 export default function RestaurantDetail({ route, navigation }) {
   // console.log(route);
+
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>

@@ -20,6 +20,13 @@ export default function HeaderTab(props) {
         activeTab={props.activeTab}
         setActiveTab={props.setActiveTab}
       />
+      <HeaderButton
+        text="Dine in"
+        btnColor="white"
+        textColor="black"
+        activeTab={props.activeTab}
+        setActiveTab={props.setActiveTab}
+      />
     </View>
   );
 }
@@ -39,7 +46,7 @@ const HeaderButton = (props) => {
         style={{
           color: props.activeTab === props.text ? "white" : "black",
           fontSize: 15,
-          fontWeight: "bold",
+          fontFamily: "Product-Sans-Bold",
         }}
       >
         {props.text}

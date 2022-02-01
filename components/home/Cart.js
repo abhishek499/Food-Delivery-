@@ -27,7 +27,9 @@ export default function Cart() {
           size={30}
           color="white"
         />
-        <Text style={{ color: "white" }}>Tab to view Items in the Cart</Text>
+        <Text style={{ color: "white", fontFamily: "Product-Sans-Bold" }}>
+          Tab to view Items in the Cart
+        </Text>
         {/* <View
           style={{
             width: 110,
@@ -58,8 +60,10 @@ export default function Cart() {
             elevation: 3,
           }}
         >
-          <Text>2 Items | ₹ 150</Text>
-          <Text style={{ fontWeight: "bold" }}>CheckOut</Text>
+          <Text style={{ fontFamily: "Product-Sans-Regular" }}>
+            2 Items | ₹ 150
+          </Text>
+          <Text style={{ fontFamily: "Product-Sans-Bold" }}>CheckOut</Text>
         </TouchableOpacity>
         {/* </View> */}
       </View>

@@ -11,6 +11,12 @@ import MaterialCommunityIcons from "react-native-vector-icons/Ionicons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import firebase from "../../firebase";
+import AppLoading from "expo-app-loading";
+import useFonts from "../hooks/useFonts";
+
+const fetchFont = async () => {
+  await useFonts();
+};
 
 export const localRestaurants = [
   {
@@ -252,8 +258,18 @@ const RestaurantInfo = (props) => (
     }}
   >
     <View>
-      <Text style={{ fontSize: 15, fontWeight: "bold" }}>{props.name}</Text>
-      <Text style={{ fontSize: 13, color: "gray" }}>{props.price}</Text>
+      <Text style={{ fontSize: 15, fontFamily: "Product-Sans-Bold" }}>
+        {props.name}
+      </Text>
+      <Text
+        style={{
+          fontSize: 13,
+          color: "gray",
+          fontFamily: "Product-Sans-Regular",
+        }}
+      >
+        {props.price}
+      </Text>
     </View>
     <View
       style={{

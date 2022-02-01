@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,12 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import AppLoading from "expo-app-loading";
+import useFonts from "../hooks/useFonts";
+
+const fetchFont = async () => {
+  await useFonts();
+};
 
 const items = [
   { image: require("../../assets/images/shopping-bag.png"), text: "Pick-up" },
@@ -18,6 +24,17 @@ const items = [
 ];
 
 export default function Categories() {
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFont}
+        onError={(err) => console.log(err)}
+        onFinish={() => setFontLoaded(true)}
+      />
+    );
+  }
   return (
     <View
       style={{
@@ -32,6 +49,7 @@ export default function Categories() {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {items.map((item, index) => (
           <TouchableOpacity
+            key={index}
             onPress={() =>
               Alert.alert(
                 "Caterogry Pressed",
@@ -40,7 +58,6 @@ export default function Categories() {
             }
           >
             <View
-              key={index}
               style={{
                 height: "80%",
                 alignItems: "center",
@@ -55,7 +72,7 @@ export default function Categories() {
                   resizeMode: "contain",
                 }}
               />
-              <Text style={{ fontSize: 13, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 13, fontFamily: "Product-Sans-Bold" }}>
                 {item.text}
               </Text>
             </View>
