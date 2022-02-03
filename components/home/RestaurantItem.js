@@ -64,16 +64,21 @@ import { useDispatch } from "react-redux";
 // ];
 
 const RestaurantInfo = (props) => {
+  const item = props.name;
+  const type = props.type;
   const [quantity, setQuantity] = useState(0);
+
   const dispatch = useDispatch();
 
   const selectItem = (item, quantity) =>
     dispatch({
       type: "ADD_TO_CART",
       payload: {
-        ...item,
-        items: [...item, { item, quantity }],
+        item: item,
+        quantity: quantity,
         checkboxValue: true,
+        type: type,
+        price: props.price,
       },
     });
 
@@ -145,7 +150,7 @@ const RestaurantInfo = (props) => {
               alignItems: "center",
               borderRadius: 20,
             }}
-            onPress={() => setQuantity(quantity + 1)}
+            onPress={() => addToCart()}
           >
             <Text
               style={{
@@ -279,12 +284,9 @@ export default function RestaurantItem({ navigation, ...props }) {
       name: "Veg Crisp Burger",
       image_url:
         "https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      categories: ["Cafe", "Bar"],
       detail:
         "Too Hot to handle, veg crispy burger is served you with the best crisp possible melts as soon as it enters in your mouth",
       price: "₹ 150",
-      reviews: 1244,
-      rating: 4.5,
       key: 1,
       type: "veg",
     },
@@ -292,12 +294,9 @@ export default function RestaurantItem({ navigation, ...props }) {
       name: "Cheese Burger",
       image_url:
         "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246__480.jpg",
-      categories: ["Cafe", "Bar"],
       detail:
         "Too Hot to handle, veg crispy burger is served you with the best crisp possible melts as soon as it enters in your mouth",
       price: "₹ 200",
-      reviews: 1244,
-      rating: 3.7,
       key: 2,
       type: "veg",
     },
@@ -305,12 +304,9 @@ export default function RestaurantItem({ navigation, ...props }) {
       name: "Chinese Noodles",
       image_url:
         "https://images.pexels.com/photos/2098135/pexels-photo-2098135.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      categories: ["Indian", "Bar"],
       detail:
         "Too Hot to handle, veg crispy burger is served you with the best crisp possible melts as soon as it enters in your mouth",
       price: "₹ 350",
-      reviews: 700,
-      rating: 4.9,
       key: 3,
       type: "veg",
     },
@@ -318,12 +314,9 @@ export default function RestaurantItem({ navigation, ...props }) {
       name: "India's Grill",
       image_url:
         "https://b.zmtcdn.com/data/pictures/chains/0/18798800/e390c1d8f4df7d86b3787fe98ecd4427.jpg?fit=around|300:273&crop=300:273;*,*",
-      categories: ["Indian", "Bar"],
       detail:
         "Too Hot to handle, veg crispy burger is served you with the best crisp possible melts as soon as it enters in your mouth",
       price: "₹ 450",
-      reviews: 700,
-      rating: 4.9,
       key: 4,
       type: "non-veg",
     },
@@ -331,12 +324,9 @@ export default function RestaurantItem({ navigation, ...props }) {
       name: "Momos",
       image_url:
         "https://b.zmtcdn.com/data/pictures/chains/3/18689923/fe92135685160e19b3a464a788876e45.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*",
-      categories: ["Cafe", "Bar"],
       detail:
         "Too Hot to handle, veg crispy burger is served you with the best crisp possible melts as soon as it enters in your mouth",
       price: "₹ 350",
-      reviews: 1244,
-      rating: 3.7,
       key: 5,
       type: "veg",
     },
@@ -353,41 +343,32 @@ export default function RestaurantItem({ navigation, ...props }) {
         });
       });
 
-    console.log(restaurant);
-
     return () => unsubscribe();
   }, []);
 
   return (
     <>
       <FlatList
-        style={
-          {
-            //  height: 10000,
-            // backgroundColor: "yellow",
-          }
-        }
         data={restaurant}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
           return (
             <View>
               <TouchableOpacity
-                key={item.key}
+                key={index}
                 activeOpacity={0.5}
                 style={{ marginBottom: 2 }}
                 onPress={() =>
-                  navigation.navigate("RestaurantDetail", {
+                  navigation.navigate("ItemDetail", {
                     name: item.name,
                     image: item.image_url,
-                    categories: item.categories,
                     price: item.price,
-                    reviews: item.reviews,
-                    rating: item.rating,
+                    type: item.type,
+                    detail: item.detail,
                   })
                 }
               >
                 <View
-                  key={item.key}
+                  key={index}
                   style={{
                     marginTop: 10,
                     // padding: 15,
@@ -401,8 +382,8 @@ export default function RestaurantItem({ navigation, ...props }) {
                   <RestaurantInfo
                     name={item.name}
                     price={item.price}
-                    rating={item.rating}
                     detail={item.detail}
+                    type={item.type}
                   />
                 </View>
               </TouchableOpacity>

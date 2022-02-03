@@ -25,8 +25,15 @@ let cartReducer = (state = defaultState, action) => {
         };
       }
 
-      console.log(newState, "👉");
+      // console.log(newState, "👉");
       return newState;
+    }
+
+    case "ADD_ON": {
+      let newState = { ...state };
+      if (action.payload.checkboxValue) {
+        console.log(action.payload);
+      }
     }
 
     default:

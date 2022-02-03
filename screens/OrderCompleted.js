@@ -2,7 +2,7 @@ import LottieView from "lottie-react-native";
 import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import MenuItems from "../components/restaurantDetail/MenuItems";
+import MenuItems from "../components/ItemDetail/MenuItems";
 import firebase from "../firebase";
 
 export default function OrderCompleted({ route }) {
