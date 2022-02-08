@@ -33,9 +33,14 @@ let cartReducer = (state = defaultState, action) => {
       let newState = { ...state };
       if (action.payload.checkboxValue) {
         console.log(action.payload);
+        items: [
+          ...newState.selectedItems.items.filter(
+            (item) => item.title === action.payload.food
+          ),
+        ];
       }
+      console.log(newState);
     }
-
     default:
       return state;
   }

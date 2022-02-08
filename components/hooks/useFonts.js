@@ -8,6 +8,7 @@ const useFonts = async () => {
     "Product-Sans-Bold": require("../../assets/fonts/Product-Sans-Bold.ttf"),
     "Product-Sans-Italic": require("../../assets/fonts/Product-Sans-Italic.ttf"),
     "Product-Sans-Regular": require("../../assets/fonts/Product-Sans-Regular.ttf"),
+    "Lobster-Regular": require("../../assets/fonts/Lobster-Regular.ttf"),
   });
 };
 

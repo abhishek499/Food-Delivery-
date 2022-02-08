@@ -74,7 +74,7 @@ const RestaurantInfo = (props) => {
     dispatch({
       type: "ADD_TO_CART",
       payload: {
-        item: item,
+        food: item,
         quantity: quantity,
         checkboxValue: true,
         type: type,
@@ -332,19 +332,19 @@ export default function RestaurantItem({ navigation, ...props }) {
     },
   ]);
 
-  useEffect(() => {
-    const db = firebase.firestore();
-    const unsubscribe = db
-      .collection("restaurant")
-      .limit(1)
-      .onSnapshot((snapshot) => {
-        snapshot.docs.map((doc) => {
-          setRestaurant(doc.data());
-        });
-      });
+  // useEffect(() => {
+  //   const db = firebase.firestore();
+  //   const unsubscribe = db
+  //     .collection("restaurant")
+  //     .limit(1)
+  //     .onSnapshot((snapshot) => {
+  //       snapshot.docs.map((doc) => {
+  //         setRestaurant(doc.data());
+  //       });
+  //     });
 
-    return () => unsubscribe();
-  }, []);
+  //   return () => unsubscribe();
+  // }, []);
 
   return (
     <>

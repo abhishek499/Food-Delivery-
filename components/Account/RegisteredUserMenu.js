@@ -1,6 +1,8 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Tittle from "./Tittle";
+import { auth } from "../../firebase";
+import { NavigationContainer } from "@react-navigation/native";
 
 const MenuItem = (props) => {
   return (
@@ -72,6 +74,7 @@ const Menu = (props) => {
 const FooterItem = (props) => (
   <View style={{}}>
     <TouchableOpacity
+      onPress={props.onPress}
       activeOpacity={0.5}
       style={{ paddingHorizontal: "2%", paddingVertical: 2 }}
     >
@@ -79,30 +82,6 @@ const FooterItem = (props) => (
         {props.tittle}
       </Text>
     </TouchableOpacity>
-    {/* <TouchableOpacity
-      activeOpacity={0.5}
-      style={{ paddingHorizontal: "2%", paddingVertical: 2 }}
-    >
-      <Text style={{ fontFamily: "Product-Sans-Regular", color: "#626065" }}>
-        Report a Safety Emergency
-      </Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.5}
-      style={{ paddingHorizontal: "2%", paddingVertical: 2 }}
-    >
-      <Text style={{ fontFamily: "Product-Sans-Regular", color: "#626065" }}>
-        Rate us on the Play store
-      </Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      activeOpacity={0.5}
-      style={{ paddingHorizontal: "2%", paddingVertical: 2 }}
-    >
-      <Text style={{ fontFamily: "Product-Sans-Regular", color: "#626065" }}>
-        Logout
-      </Text>
-    </TouchableOpacity> */}
   </View>
 );
 
@@ -115,13 +94,23 @@ const Footer = (props) => (
       paddingVertical: 10,
     }}
   >
-    {props.tittle.map((item, index) => (
-      <FooterItem key={index} tittle={item} />
+    {props.btn.map((item, index) => (
+      <FooterItem key={index} tittle={item.tittle} onPress={item.onPress} />
     ))}
   </View>
 );
 
-export default function RegisteredUserMenu() {
+export default function RegisteredUserMenu({ navigation }) {
+  const handlePress = () => alert("btn is pressed");
+
+  const handleLogout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Login");
+      })
+      .catch((err) => alert(err.message));
+  };
   return (
     <View>
       <Menu
@@ -138,11 +127,11 @@ export default function RegisteredUserMenu() {
         items={["Your Bookings", "Table Reservation Help", "About"]}
       />
       <Footer
-        tittle={[
-          "Send Feedback",
-          "Report a Safety  Emergency",
-          "Rate us on the Play Store",
-          "Logout",
+        btn={[
+          { tittle: "Send Feedback", onPress: handlePress },
+          { tittle: "Report a Safety Emergency", onPress: handlePress },
+          { tittle: "Rate us on Play Store", onPress: handlePress },
+          { tittle: "Logout", onPress: handleLogout },
         ]}
       />
     </View>

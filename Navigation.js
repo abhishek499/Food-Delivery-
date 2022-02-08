@@ -10,6 +10,9 @@ import OrderHistory from "./screens/OrderHistory";
 import Browse from "./screens/Browse";
 import Cart from "./screens/Cart";
 import Account from "./screens/Account";
+import Login from "./screens/Login";
+import LoginTabs from "./screens/LoginTabs";
+import SignUp from "./screens/SignUp";
 
 const store = configureStore();
 
@@ -31,6 +34,9 @@ export default function RootNavigation() {
           <Stack.Screen name={"Browse"} component={Browse} />
           <Stack.Screen name={"Cart"} component={Cart} />
           <Stack.Screen name={"Account"} component={Account} />
+          <Stack.Screen name={"LoginTab"} component={LoginTabs} />
+          <Stack.Screen name={"Login"} component={Login} />
+          <Stack.Screen name={"SignUp"} component={SignUp} />
         </Stack.Navigator>
       </NavigationContainer>
     </ReduxProvider>
