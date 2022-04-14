@@ -4,6 +4,8 @@ import RootNavigation from "./Navigation";
 import AppLoading from "expo-app-loading";
 import useFonts from "./components/hooks/useFonts";
 
+import { DataProvider } from "./components/context/DataContext";
+
 const fetchFont = async () => {
   await useFonts();
 };
@@ -20,5 +22,9 @@ export default function App() {
       />
     );
   }
-  return <RootNavigation />;
+  return (
+    <DataProvider>
+      <RootNavigation />
+    </DataProvider>
+  );
 }

@@ -19,7 +19,6 @@ import SafeViewAndroid from "../components/home/SafeViewAndroid";
 import SearchBar from "../components/home/SearchBar";
 
 export default function Home({ navigation }) {
-  const [restaurantData, setRestaurantData] = useState(localRestaurants);
   const [activeTab, setActiveTab] = useState("Delivery");
 
   return (
